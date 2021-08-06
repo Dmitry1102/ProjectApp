@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ProjectApp</string>
+    <string name="choose">Choose Lesson</string>
+    <string name="type_day"> Input Day</string>
+    <string name="type_time"> Input Time</string>
+    <string name="type_week"> Input Week</string>
+    <string name="add"> Add</string>
+
+    <string-array name="spinner_items">
+        <item> Math </item>
+        <item> Chemistry</item>
+        <item> Physics </item>
+        <item> English</item>
+        <item> Russian </item>
+        <item> Biology</item>
+        <item> Geography </item>
+        <item> Literature </item>
+    </string-array>
+
+    <string-array name="day_items">
+        <item> Monday </item>
+        <item> Tuesday</item>
+        <item> Wednesday </item>
+        <item> Thursday</item>
+    </string-array>
+
+
+
+</resources>
