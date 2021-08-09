@@ -13,7 +13,7 @@ import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentScheduleBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ScheduleFragment: Fragment(), ListProvider {
+class ScheduleFragment: Fragment(){
 
     private var binding: FragmentScheduleBinding? = null
     private val viewModel:ScheduleViewModel by viewModel()
@@ -32,9 +32,9 @@ class ScheduleFragment: Fragment(), ListProvider {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnEdit?.setOnClickListener{
-            binding?.btnEdit?.visibility = View.INVISIBLE
-            binding?.btnBack?.visibility = View.INVISIBLE
-            binding?.rvSchedule?.visibility = View.INVISIBLE
+//            binding?.btnEdit?.visibility = View.INVISIBLE
+//            binding?.btnBack?.visibility = View.INVISIBLE
+//            binding?.rvSchedule?.visibility = View.INVISIBLE
             val addFragment = AddFragment()
 
             binding?.fragmentContainerView?.id?.let { it1 ->
@@ -73,11 +73,11 @@ class ScheduleFragment: Fragment(), ListProvider {
     companion object{
         const val REPLACE_ADD = "REPLACE_ADD"
     }
-
-    override fun makeVisible() {
-        binding!!.rvSchedule.visibility = View.VISIBLE
-        binding!!.btnEdit.visibility = View.VISIBLE
-        binding!!.btnBack.visibility = View.VISIBLE
-    }
+//
+//    override fun makeVisible() {
+//        binding!!.rvSchedule.visibility = View.VISIBLE
+//        binding!!.btnEdit.visibility = View.VISIBLE
+//        binding!!.btnBack.visibility = View.VISIBLE
+//    }
 
 }

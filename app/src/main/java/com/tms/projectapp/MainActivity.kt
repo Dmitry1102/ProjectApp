@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnSchedule.setOnClickListener{
-            supportFragmentManager.beginTransaction().add(
+            supportFragmentManager.beginTransaction().replace(
                 binding.frMain.id, scheduleFragment, FRAGMENT_TAG
             ).addToBackStack(null).commit()
 
-            binding.btnSchedule.visibility = View.INVISIBLE
-            binding.btnCall.visibility = View.INVISIBLE
-
+//            binding.btnSchedule.visibility = View.INVISIBLE
+//            binding.btnCall.visibility = View.INVISIBLE
+//
 
 
         }
