@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.tms.projectapp.MainActivity
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentEditBinding
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.lang.Exception
 
 class AddFragment: Fragment() {
 
@@ -29,29 +31,36 @@ class AddFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val time = binding!!.editTime.text.toString()
-        val scheduleTime = time.toLong()
+        try {
+            binding?.btnAdd?.setOnClickListener{
+                binding!!.editTime.text.toString().toLongOrNull()?.let { it1 ->
+                    viewModel.addToDataBase(
+                        binding!!.spin.selectedItem.toString(),
+                        binding!!.spinDay.selectedItem.toString(),
+                        binding!!.editWeek.text.toString(),
+                        it1
+                    )
+                }
 
-        binding?.btnAdd?.setOnClickListener{
-            viewModel.addToDataBase(
-                binding!!.spin.selectedItem.toString(),
-                binding!!.spinDay.selectedItem.toString(),
-                binding!!.editWeek.text.toString(),
-                scheduleTime
-            )
+                val fragmentBack =  activity?.supportFragmentManager
+                fragmentBack?.popBackStack()
 
-            childFragmentManager.beginTransaction().remove(this)
 
+
+            }
+        }catch (e: Exception){
+            val text = "Input definitions: ${e}"
+            val duration = Toast.LENGTH_SHORT
+            Toast.makeText(context,text, duration )
         }
+
 
         val intent = Intent()
         intent.putExtra(NAME_LESSON,binding?.spin?.selectedItem.toString())
-        intent.putExtra(TIME_LESSON,scheduleTime)
+        intent.putExtra(TIME_LESSON,binding!!.editTime.text.toString().toLongOrNull())
         intent.putExtra(WEEK_LESSON,binding?.editWeek.toString())
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
-
-
-    }
+   }
 
     companion object{
         const val NAME_LESSON = "NAME_LESSON"
@@ -60,8 +69,6 @@ class AddFragment: Fragment() {
         const val DAY_LESSON = "DAY_LESSON"
 
     }
-
-
 
     override fun onDestroy() {
         super.onDestroy()

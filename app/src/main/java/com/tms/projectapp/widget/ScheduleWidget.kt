@@ -79,12 +79,6 @@ class ScheduleWidget: AppWidgetProvider() {
 
     }
 
-
-
-
-
-
-
     private fun getSyncRequestIntent(context: Context?): PendingIntent? {
         val intent = Intent(context, javaClass)
         intent.action = APP_WIDGET_SYNC_ACTION
@@ -109,7 +103,7 @@ class ScheduleWidget: AppWidgetProvider() {
         const val APP_WIDGET_OPEN_APP = "PLANNER_APP_WIDGET_OPEN_APP"
         const val APP_WIDGET_SYNC_ACTION = "PLANNER_APP_WIDGET_SYNC_ACTION"
         const val APP_WIDGET_SYNC_RESULT = "PLANNER_APP_WIDGET_SYNC_RESULT"
-        const val JOB_ID = 14839
+        const val JOB_ID = 56555
 
         const val KEY_SCHEDULE_NAME = "APP_SCHEDULE_TEXT"
         const val KEY_SCHEDULE_TIME = "KEY_SCHEDULE_TIME"

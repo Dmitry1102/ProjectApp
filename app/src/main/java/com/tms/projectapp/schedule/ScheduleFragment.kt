@@ -6,21 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.tms.projectapp.MainActivity
 import com.tms.projectapp.ScheduleAdapter
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentScheduleBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ScheduleFragment: Fragment() {
+class ScheduleFragment: Fragment(), ListProvider {
 
     private var binding: FragmentScheduleBinding? = null
     private val viewModel:ScheduleViewModel by viewModel()
-
-    init{
-        binding?.rvSchedule?.visibility = View.VISIBLE
-        binding?.btnEdit?.visibility = View.VISIBLE
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,30 +25,40 @@ class ScheduleFragment: Fragment() {
     ): View? {
         binding = FragmentScheduleBinding.inflate(inflater,container,false)
         return binding?.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnEdit?.setOnClickListener{
-            binding?.rvSchedule?.visibility = View.INVISIBLE
             binding?.btnEdit?.visibility = View.INVISIBLE
+            binding?.btnBack?.visibility = View.INVISIBLE
+            binding?.rvSchedule?.visibility = View.INVISIBLE
+            val addFragment = AddFragment()
 
-            val mainActivity = (activity as MainActivity)
-            mainActivity.openAddFragment()
-
-            val scheduleAdapter = ScheduleAdapter{click(it)}
-            binding?.rvSchedule?.adapter= scheduleAdapter
-
-
-            viewModel.liveData.observe(this.viewLifecycleOwner){
-                scheduleAdapter.submitList(it)
+            binding?.fragmentContainerView?.id?.let { it1 ->
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(it1, addFragment,REPLACE_ADD )
+                    ?.addToBackStack(null)
+                    ?.commit()
             }
-
-
         }
 
+        binding?.rvSchedule?.layoutManager =
+            LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
 
+        val scheduleAdapter = ScheduleAdapter{click(it)}
+        binding?.rvSchedule?.adapter= scheduleAdapter
+        viewModel.liveData.observe(this.viewLifecycleOwner){
+            scheduleAdapter.submitList(it)
+        }
+
+        binding?.btnBack?.setOnClickListener {
+            (activity as? ListProvider)?.makeVisible()
+            val fragmentBack =  activity?.supportFragmentManager
+            fragmentBack?.popBackStack()
+        }
     }
 
     override fun onDestroy() {
@@ -64,7 +70,14 @@ class ScheduleFragment: Fragment() {
         viewModel.deleteFromDataBase(data)
     }
 
+    companion object{
+        const val REPLACE_ADD = "REPLACE_ADD"
+    }
 
-
+    override fun makeVisible() {
+        binding!!.rvSchedule.visibility = View.VISIBLE
+        binding!!.btnEdit.visibility = View.VISIBLE
+        binding!!.btnBack.visibility = View.VISIBLE
+    }
 
 }

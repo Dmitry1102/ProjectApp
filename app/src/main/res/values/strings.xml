@@ -5,6 +5,7 @@
     <string name="type_time"> Input Time</string>
     <string name="type_week"> Input Week</string>
     <string name="add"> Add</string>
+    <string name="back">Back</string>
 
     <string-array name="spinner_items">
         <item> Math </item>
@@ -22,6 +23,9 @@
         <item> Tuesday</item>
         <item> Wednesday </item>
         <item> Thursday</item>
+        <item>Friday</item>
+        <item>SaturnDay</item>
+        <item>Sunday</item>
     </string-array>
 
 
