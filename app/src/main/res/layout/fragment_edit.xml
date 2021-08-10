@@ -32,17 +32,21 @@
         android:id="@+id/tv_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/type_day"
         android:textColor="@color/black"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/spin_day"
+        tools:layout_editor_absoluteX="12dp" />
 
     <Spinner
         android:id="@+id/spin_day"
         android:layout_width="387dp"
         android:layout_height="32dp"
+        android:layout_marginTop="68dp"
         android:entries="@array/day_items"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spin" />
 
     <TextView
         android:id="@+id/tv_third"
