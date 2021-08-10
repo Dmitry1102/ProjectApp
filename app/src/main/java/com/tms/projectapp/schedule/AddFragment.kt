@@ -42,6 +42,7 @@ class AddFragment: Fragment() {
                         binding!!.editWeek.text.toString(),
                         binding!!.editTime.text.toString().toLong()
                     )
+                it.findNavController().popBackStack()
                 }
 
                 Log.e("KEK", binding!!.spin.selectedItem.toString())
@@ -50,7 +51,7 @@ class AddFragment: Fragment() {
                 Log.e("KEK", binding!!.editTime.text.toString())
 
 
-                it.findNavController().popBackStack()
+
 
 
 
