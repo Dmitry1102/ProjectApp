@@ -2,6 +2,7 @@ package com.tms.projectapp.schedule
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,16 +36,22 @@ class AddFragment: Fragment() {
 
         try {
             binding?.btnAdd?.setOnClickListener{
-                binding!!.editTime.text.toString().toLongOrNull()?.let { it1 ->
                     viewModel.addToDataBase(
                         binding!!.spin.selectedItem.toString(),
                         binding!!.spinDay.selectedItem.toString(),
                         binding!!.editWeek.text.toString(),
-                        it1
+                        binding!!.editTime.text.toString().toLong()
                     )
                 }
 
+                Log.e("KEK", binding!!.spin.selectedItem.toString())
+                Log.e("KEK", binding!!.spinDay.selectedItem.toString())
+                Log.e("KEK", binding!!.editWeek.text.toString())
+                Log.e("KEK", binding!!.editTime.text.toString())
+
+
                 it.findNavController().popBackStack()
+
 
 
             }
