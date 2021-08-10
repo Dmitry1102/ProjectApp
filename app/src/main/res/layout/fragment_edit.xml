@@ -9,26 +9,20 @@
         android:id="@+id/tv_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
         android:text="@string/choose"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/spin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spin"
         android:layout_width="387dp"
         android:layout_height="32dp"
         android:entries="@array/spinner_items"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188" />
+        />
 
     <TextView
         android:id="@+id/tv_second"
@@ -37,23 +31,14 @@
         android:layout_marginTop="60dp"
         android:text="@string/type_day"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/spin_day"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin"
-        app:layout_constraintVertical_bias="0.0" />
+        />
 
     <Spinner
         android:id="@+id/spin_day"
         android:layout_width="387dp"
         android:layout_height="32dp"
         android:entries="@array/day_items"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin"
-        app:layout_constraintVertical_bias="0.149" />
+        />
 
     <TextView
         android:id="@+id/tv_third"
@@ -61,12 +46,7 @@
         android:layout_height="wrap_content"
         android:text="@string/type_time"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/edit_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_day"
-        app:layout_constraintVertical_bias="1.0" />
+        />
 
     <EditText
         android:id="@+id/edit_time"
@@ -74,12 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="340dp"
         android:inputType="time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_day"
-        app:layout_constraintVertical_bias="0.957" />
+        />
 
     <TextView
         android:id="@+id/tv_fourth"
@@ -88,24 +63,14 @@
         android:layout_marginTop="68dp"
         android:text="@string/type_week"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/edit_week"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_time"
-        app:layout_constraintVertical_bias="1.0" />
+        />
 
     <EditText
         android:id="@+id/edit_week"
         android:layout_width="387dp"
         android:layout_height="wrap_content"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_time"
-        app:layout_constraintVertical_bias="0.333" />
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add"
@@ -115,10 +80,7 @@
         android:backgroundTint="@color/black"
         android:text="@string/add"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_week"
-        app:layout_constraintVertical_bias="0.234" />
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
