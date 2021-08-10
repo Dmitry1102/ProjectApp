@@ -11,6 +11,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+# for FragmentContainerView error
+#-keepnames class androidx.navigation.fragment.NavHostFragment
+#-keep class * extends androidx.fragment.app.Fragment{}
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

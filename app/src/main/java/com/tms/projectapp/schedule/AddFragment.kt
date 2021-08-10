@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.tms.projectapp.MainActivity
+import com.tms.projectapp.R
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentEditBinding
 import org.koin.android.ext.android.inject
@@ -42,16 +44,14 @@ class AddFragment: Fragment() {
                     )
                 }
 
-                val fragmentBack =  activity?.supportFragmentManager
-                fragmentBack?.popBackStack()
-
+                it.findNavController().popBackStack()
 
 
             }
         }catch (e: Exception){
             val text = "Input definitions: ${e}"
             val duration = Toast.LENGTH_SHORT
-            Toast.makeText(context,text, duration )
+            Toast.makeText(context,text, duration).show()
         }
 
 

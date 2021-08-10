@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/fragmentMainFrag">
+
+    <fragment
+        android:id="@+id/fragmentMainFrag"
+        android:name="com.tms.projectapp.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentSchedule"
+            app:destination="@+id/fragmentSchedule" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSchedule"
+        android:name="com.tms.projectapp.schedule.ScheduleFragment"
+        android:label="ScheduleFragment"
+        tools:layout="@layout/fragment_schedule">
+
+        <action
+            android:id="@+id/action_fragmentSchedule_to_fragmentAdd"
+            app:destination="@+id/fragmentAdd" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentAdd"
+        android:name="com.tms.projectapp.schedule.AddFragment"
+        android:label="AddFragment"
+        tools:layout="@layout/fragment_edit">
+
+
+    </fragment>
+
+
+
+
+</navigation>

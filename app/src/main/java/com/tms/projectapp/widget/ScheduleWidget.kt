@@ -98,7 +98,7 @@ class ScheduleWidget: AppWidgetProvider() {
     }
 
     companion object{
-        private val dateFormatter = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
+        private val dateFormatter = SimpleDateFormat("HH:mm", Locale.getDefault())
 
         const val APP_WIDGET_OPEN_APP = "PLANNER_APP_WIDGET_OPEN_APP"
         const val APP_WIDGET_SYNC_ACTION = "PLANNER_APP_WIDGET_SYNC_ACTION"

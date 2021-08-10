@@ -58,7 +58,7 @@ class ScheduleViewHolder(
     }
 
     companion object {
-        private val dateFormatter = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
+        private val dateFormatter = SimpleDateFormat("HH:mm", Locale.getDefault())
 
     }
 }
