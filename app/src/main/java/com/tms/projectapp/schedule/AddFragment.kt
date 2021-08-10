@@ -36,28 +36,14 @@ class AddFragment: Fragment() {
 
         try {
             binding?.btnAdd?.setOnClickListener{
-//                    viewModel.addToDataBase(
-//                        binding!!.spin.selectedItem.toString(),
-//                        binding!!.spinDay.selectedItem.toString(),
-//                        binding!!.editWeek.text.toString(),
-//                        makeLong(binding!!.editTime.text.toString())
-//                    )'
-                Log.e("KEK", binding!!.spin.selectedItem.toString())
-                Log.e("KEK", binding!!.spinDay.selectedItem.toString())
-                Log.e("KEK", binding!!.editWeek.text.toString())
-                Log.e("KEK", "${makeLong(binding!!.editTime.text.toString())}")
-
-
+                    viewModel.addToDataBase(
+                        binding!!.spin.selectedItem.toString(),
+                        binding!!.spinDay.selectedItem.toString(),
+                        binding!!.editWeek.text.toString(),
+                        makeLong(binding!!.editTime.text.toString())
+                    )
                 it.findNavController().popBackStack()
                 }
-
-
-
-
-
-
-
-
 
         }catch (e: Exception){
             val text = "Input definitions: ${e}"
@@ -73,10 +59,8 @@ class AddFragment: Fragment() {
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
    }
 
-    private fun makeLong(text: String): Long{
+    private fun makeLong(text: String): Long = text.replace(":","").toLong()
 
-        return text.replace(":","").toLong()
-    }
 
     companion object{
         const val NAME_LESSON = "NAME_LESSON"
