@@ -2,18 +2,13 @@ package com.tms.projectapp.schedule
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.tms.projectapp.MainActivity
-import com.tms.projectapp.R
-import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentEditBinding
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.lang.Exception
 
@@ -36,13 +31,7 @@ class AddFragment: Fragment() {
 
         try {
             binding?.btnAdd?.setOnClickListener{
-                    viewModel.addToDataBase(
-                        binding!!.spin.selectedItem.toString(),
-                        binding!!.spinDay.selectedItem.toString(),
-                        binding!!.editWeek.text.toString(),
-                        binding!!.editTime.text.toString()
-
-                    )
+                addToBase()
                 it.findNavController().popBackStack()
                 }
 
@@ -55,12 +44,25 @@ class AddFragment: Fragment() {
 
         val intent = Intent()
         intent.putExtra(NAME_LESSON,binding?.spin?.selectedItem.toString())
-        intent.putExtra(TIME_LESSON,binding!!.editTime.text.toString())
+        //intent.putExtra(TIME_LESSON,time)
         intent.putExtra(WEEK_LESSON,binding?.editWeek.toString())
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
    }
 
-    private fun makeLong(text: String): Long = text.replace(":","").toLong()
+
+    fun addToBase(){
+        viewModel.addToDataBase(
+            binding!!.spin.selectedItem.toString(),
+            binding!!.spinDay.selectedItem.toString(),
+            binding!!.editWeek.text.toString(),
+            binding!!.editTime.text.toString().replace(":","").toLong()
+        )
+    }
+
+//    private fun makeLong(text: String): Long {
+//        text.replace(":", "")
+//        return text.toLong()
+//    }
 
 
     companion object{

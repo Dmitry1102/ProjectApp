@@ -16,12 +16,12 @@ class ScheduleViewModel(
 
     val liveData: LiveData<List<Data>> = scheduleRepository.getData().asLiveData()
 
-    fun addToDataBase(name: String, day: String, week: String, time: String){
+    fun addToDataBase(name: String, day: String, week: String, time: Long){
         val schedule = DataEntity(
             name = name,
             day = day,
             week = week,
-            time = time,
+            time = time
         )
 
         viewModelScope.launch(Dispatchers.IO) {

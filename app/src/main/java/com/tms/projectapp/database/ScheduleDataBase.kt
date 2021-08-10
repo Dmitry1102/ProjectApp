@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [DataEntity::class], version = 1)
 abstract class ScheduleDataBase: RoomDatabase()  {
 
+
     abstract fun dataDao():DataDao
 
 }

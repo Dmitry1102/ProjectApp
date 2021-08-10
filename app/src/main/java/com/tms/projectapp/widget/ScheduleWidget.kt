@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.text.format.Time
 import android.widget.RemoteViews
 import androidx.core.app.JobIntentService
 import com.tms.projectapp.MainActivity
@@ -68,8 +69,8 @@ class ScheduleWidget: AppWidgetProvider() {
 
     private fun handleSyncResult(remoteViews: RemoteViews, intent: Intent?) {
         remoteViews.setTextViewText(R.id.tv_title, intent?.getStringExtra(KEY_SCHEDULE_NAME))
-        val time = intent?.getStringExtra(KEY_SCHEDULE_TIME)
-        if (time?.toLong()!! > 0L  ) {
+        val time: Long? = intent?.getLongExtra(KEY_SCHEDULE_TIME,0L)
+        if (time!! > 0L  ) {
             remoteViews.setTextViewText(R.id.tv_date, dateFormatter.format(Date(time)))
         } else {
             remoteViews.setTextViewText(R.id.tv_date, "")
@@ -98,7 +99,7 @@ class ScheduleWidget: AppWidgetProvider() {
     }
 
     companion object{
-        private val dateFormatter = SimpleDateFormat("HH:mm", Locale.getDefault())
+        private val dateFormatter = SimpleDateFormat("HH:mm")
 
         const val APP_WIDGET_OPEN_APP = "PLANNER_APP_WIDGET_OPEN_APP"
         const val APP_WIDGET_SYNC_ACTION = "PLANNER_APP_WIDGET_SYNC_ACTION"
