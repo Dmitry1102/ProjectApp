@@ -22,12 +22,14 @@ class UpdateWidgetService: JobIntentService(), KoinComponent {
     override fun onHandleWork(intent: Intent) {
         val name = intent.getStringExtra(NAME_LESSON)
         val day  = intent.getStringExtra(DAY_LESSON)
-        val time = intent.getLongExtra(TIME_LESSON,0L)
+        val time = intent.getStringExtra(TIME_LESSON)
         val week = intent.getStringExtra(WEEK_LESSON)
-        updateWidget(name.toString(), time, day.toString(), week.toString())
+        if (time != null) {
+            updateWidget(name.toString(), time, day.toString(), week.toString())
+        }
     }
 
-    private fun updateWidget(name: String, time: Long, day:String , week: String) {
+    private fun updateWidget(name: String, time: String, day:String , week: String) {
         val intent = Intent(applicationContext, ScheduleWidget::class.java)
         intent.action = ScheduleWidget.APP_WIDGET_SYNC_RESULT
 

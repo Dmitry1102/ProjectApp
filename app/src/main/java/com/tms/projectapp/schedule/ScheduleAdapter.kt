@@ -50,7 +50,7 @@ class ScheduleViewHolder(
         binding.tvDay.text = item.day
         binding.tvWeek.text = item.week
         binding.tvLesson.text = item.name
-        binding.tvTime.text = item.time
+        binding.tvTime.text = dateFormatter.format(Time(item.time))
 
         itemView.setOnClickListener {
             click(item)

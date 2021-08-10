@@ -55,7 +55,7 @@ class AddFragment: Fragment() {
 
         val intent = Intent()
         intent.putExtra(NAME_LESSON,binding?.spin?.selectedItem.toString())
-        intent.putExtra(TIME_LESSON,makeLong(binding!!.editTime.text.toString()))
+        intent.putExtra(TIME_LESSON,binding!!.editTime.text.toString())
         intent.putExtra(WEEK_LESSON,binding?.editWeek.toString())
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
    }

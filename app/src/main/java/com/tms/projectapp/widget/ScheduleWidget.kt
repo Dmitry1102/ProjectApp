@@ -68,8 +68,8 @@ class ScheduleWidget: AppWidgetProvider() {
 
     private fun handleSyncResult(remoteViews: RemoteViews, intent: Intent?) {
         remoteViews.setTextViewText(R.id.tv_title, intent?.getStringExtra(KEY_SCHEDULE_NAME))
-        val time: Long = intent?.getLongExtra(KEY_SCHEDULE_TIME, 0L) ?: 0L
-        if (time > 0) {
+        val time = intent?.getStringExtra(KEY_SCHEDULE_TIME)
+        if (time?.toLong()!! > 0L  ) {
             remoteViews.setTextViewText(R.id.tv_date, dateFormatter.format(Date(time)))
         } else {
             remoteViews.setTextViewText(R.id.tv_date, "")
