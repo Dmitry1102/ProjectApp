@@ -36,26 +36,29 @@ class AddFragment: Fragment() {
 
         try {
             binding?.btnAdd?.setOnClickListener{
-                    viewModel.addToDataBase(
-                        binding!!.spin.selectedItem.toString(),
-                        binding!!.spinDay.selectedItem.toString(),
-                        binding!!.editWeek.text.toString(),
-                        binding!!.editTime.text.toString().toLong()
-                    )
-                it.findNavController().popBackStack()
-                }
-
+//                    viewModel.addToDataBase(
+//                        binding!!.spin.selectedItem.toString(),
+//                        binding!!.spinDay.selectedItem.toString(),
+//                        binding!!.editWeek.text.toString(),
+//                        makeLong(binding!!.editTime.text.toString())
+//                    )'
                 Log.e("KEK", binding!!.spin.selectedItem.toString())
                 Log.e("KEK", binding!!.spinDay.selectedItem.toString())
                 Log.e("KEK", binding!!.editWeek.text.toString())
-                Log.e("KEK", binding!!.editTime.text.toString())
+                Log.e("KEK", "${makeLong(binding!!.editTime.text.toString())}")
+
+
+                it.findNavController().popBackStack()
+                }
 
 
 
 
 
 
-            }
+
+
+
         }catch (e: Exception){
             val text = "Input definitions: ${e}"
             val duration = Toast.LENGTH_SHORT
@@ -69,6 +72,11 @@ class AddFragment: Fragment() {
         intent.putExtra(WEEK_LESSON,binding?.editWeek.toString())
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
    }
+
+    private fun makeLong(text: String): Long{
+
+        return text.replace(":","").toLong()
+    }
 
     companion object{
         const val NAME_LESSON = "NAME_LESSON"
