@@ -10,5 +10,5 @@ data class DataEntity(
     val name: String,
     val day: String,
     val week: String,
-    val time: Long = 0L
+    val time: String
 )

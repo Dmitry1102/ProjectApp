@@ -40,7 +40,8 @@ class AddFragment: Fragment() {
                         binding!!.spin.selectedItem.toString(),
                         binding!!.spinDay.selectedItem.toString(),
                         binding!!.editWeek.text.toString(),
-                        makeLong(binding!!.editTime.text.toString())
+                        binding!!.editTime.text.toString()
+
                     )
                 it.findNavController().popBackStack()
                 }
@@ -54,7 +55,7 @@ class AddFragment: Fragment() {
 
         val intent = Intent()
         intent.putExtra(NAME_LESSON,binding?.spin?.selectedItem.toString())
-        intent.putExtra(TIME_LESSON,binding!!.editTime.text.toString().toLongOrNull())
+        intent.putExtra(TIME_LESSON,makeLong(binding!!.editTime.text.toString()))
         intent.putExtra(WEEK_LESSON,binding?.editWeek.toString())
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
    }
