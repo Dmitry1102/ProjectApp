@@ -13,6 +13,10 @@
         <action
             android:id="@+id/action_fragmentMain_to_fragmentSchedule"
             app:destination="@+id/fragmentSchedule" />
+        <action
+            android:id="@+id/action_fragmentMainFrag_to_fragmentMap"
+            app:destination="@id/fragmentMap" />
+
     </fragment>
 
     <fragment
@@ -32,7 +36,13 @@
         android:name="com.tms.projectapp.schedule.AddFragment"
         android:label="AddFragment"
         tools:layout="@layout/fragment_edit">
+    </fragment>
 
+    <fragment
+        android:id="@+id/fragmentMap"
+        android:name="com.tms.projectapp.map.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_map">
 
     </fragment>
 

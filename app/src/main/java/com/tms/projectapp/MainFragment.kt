@@ -43,6 +43,11 @@ class MainFragment: Fragment() {
             makeCall("+375296321679")
         }
 
+        binding?.btnMap?.setOnClickListener {
+            it.findNavController()
+                .navigate(MainFragmentDirections.actionFragmentMainFragToFragmentMap())
+        }
+
     }
 
 

@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tms.projectapp.R
-import com.tms.projectapp.ScheduleAdapter
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentScheduleBinding
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -41,11 +39,15 @@ class ScheduleFragment: Fragment(){
         binding?.rvSchedule?.layoutManager =
             LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
 
-        val scheduleAdapter = ScheduleAdapter{click(it)}
+        val scheduleAdapter = ScheduleAdapter{data -> binding?.btnDelete?.setOnClickListener {
+            click(data)
+        }}
         binding?.rvSchedule?.adapter= scheduleAdapter
         viewModel.liveData.observe(this.viewLifecycleOwner){
             scheduleAdapter.submitList(it)
         }
+
+
 
 
 
@@ -54,14 +56,15 @@ class ScheduleFragment: Fragment(){
         }
     }
 
+    private fun click(data: Data) {
+        viewModel.deleteFromDataBase(data)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null
     }
 
-    fun click(data: Data) {
-        viewModel.deleteFromDataBase(data)
-    }
 
     companion object{
         const val REPLACE_ADD = "REPLACE_ADD"

@@ -2,6 +2,7 @@ package com.tms.projectapp.schedule
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,13 +45,13 @@ class AddFragment: Fragment() {
 
         val intent = Intent()
         intent.putExtra(NAME_LESSON,binding?.spin?.selectedItem.toString())
-        //intent.putExtra(TIME_LESSON,time)
+        intent.putExtra(TIME_LESSON, binding!!.editTime.text.toString().replace(":","").toLongOrNull())
         intent.putExtra(WEEK_LESSON,binding?.editWeek.toString())
         intent.putExtra(DAY_LESSON,binding?.spinDay?.selectedItem.toString())
    }
 
 
-    fun addToBase(){
+    private fun addToBase(){
         viewModel.addToDataBase(
             binding!!.spin.selectedItem.toString(),
             binding!!.spinDay.selectedItem.toString(),
@@ -58,11 +59,6 @@ class AddFragment: Fragment() {
             binding!!.editTime.text.toString().replace(":","").toLong()
         )
     }
-
-//    private fun makeLong(text: String): Long {
-//        text.replace(":", "")
-//        return text.toLong()
-//    }
 
 
     companion object{

@@ -11,6 +11,7 @@ import android.widget.RemoteViews
 import androidx.core.app.JobIntentService
 import com.tms.projectapp.MainActivity
 import com.tms.projectapp.R
+import org.koin.core.component.KoinApiExtension
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -71,12 +72,12 @@ class ScheduleWidget: AppWidgetProvider() {
         remoteViews.setTextViewText(R.id.tv_title, intent?.getStringExtra(KEY_SCHEDULE_NAME))
         val time: Long? = intent?.getLongExtra(KEY_SCHEDULE_TIME,0L)
         if (time!! > 0L  ) {
-            remoteViews.setTextViewText(R.id.tv_date, dateFormatter.format(Date(time)))
+            remoteViews.setTextViewText(R.id.tv_date, time.toString())
         } else {
             remoteViews.setTextViewText(R.id.tv_date, "")
         }
-        remoteViews.setTextViewText(R.id.tv_day, intent?.getStringExtra(KEY_SCHEDULE_DAY))
-        remoteViews.setTextViewText(R.id.tv_week, intent?.getStringExtra(KEY_SCHEDULE_WEEK))
+        remoteViews.setTextViewText(R.id.tv_day, intent.getStringExtra(KEY_SCHEDULE_DAY))
+        remoteViews.setTextViewText(R.id.tv_week, intent.getStringExtra(KEY_SCHEDULE_WEEK))
 
     }
 
@@ -92,6 +93,8 @@ class ScheduleWidget: AppWidgetProvider() {
         return PendingIntent.getBroadcast(context, 0, intent, 0)
     }
 
+
+    @KoinApiExtension
     private fun startSync(context: Context) {
         val intent = Intent(context, UpdateWidgetService::class.java)
         intent.action = APP_WIDGET_SYNC_ACTION

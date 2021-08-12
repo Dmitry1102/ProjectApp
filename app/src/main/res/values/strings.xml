@@ -6,6 +6,8 @@
     <string name="type_week"> Input Week</string>
     <string name="add"> Add</string>
     <string name="back">Back</string>
+    <string name="map">Map</string>
+
 
     <string-array name="spinner_items">
         <item> Math </item>
@@ -27,6 +29,8 @@
         <item>SaturnDay</item>
         <item>Sunday</item>
     </string-array>
+
+    <string name="google" templateMergeStrategy="preserve" translatable="false">AIzaSyAaxmF7OCeOmfYUDftnBv22jvFw5k1jpA0</string>
 
 
 
