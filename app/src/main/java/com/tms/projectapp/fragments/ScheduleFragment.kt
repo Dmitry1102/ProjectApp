@@ -1,4 +1,4 @@
-package com.tms.projectapp.schedule
+package com.tms.projectapp.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentScheduleBinding
+import com.tms.projectapp.schedule.ScheduleAdapter
+import com.tms.projectapp.schedule.ScheduleViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ScheduleFragment: Fragment(){
 
     private var binding: FragmentScheduleBinding? = null
-    private val viewModel:ScheduleViewModel by viewModel()
+    private val viewModel: ScheduleViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentMainFrag"
-        android:name="com.tms.projectapp.MainFragment"
+        android:name="com.tms.projectapp.fragments.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/main_fragment">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/fragmentSchedule"
-        android:name="com.tms.projectapp.schedule.ScheduleFragment"
+        android:name="com.tms.projectapp.fragments.ScheduleFragment"
         android:label="ScheduleFragment"
         tools:layout="@layout/fragment_schedule">
 
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/fragmentAdd"
-        android:name="com.tms.projectapp.schedule.AddFragment"
+        android:name="com.tms.projectapp.fragments.AddFragment"
         android:label="AddFragment"
         tools:layout="@layout/fragment_edit">
     </fragment>

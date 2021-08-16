@@ -15,9 +15,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectApp">
 
+        <receiver
+            android:name=".widget.ScheduleWidget"
+            android:label="@string/widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider"
+                android:exported="true"/>
+        </receiver>
+
+        <service
+            android:name=".widget.UpdateWidgetService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="PLANNER_APP_WIDGET_SYNC_ACTION" />
+            </intent-filter>
+        </service>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="google" />
+            android:value="@string/google" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.ItemSheduleListBinding
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ScheduleAdapter(
     private val click: (Data) -> Unit
@@ -49,7 +52,10 @@ class ScheduleViewHolder(
         binding.tvDay.text = item.day
         binding.tvWeek.text = item.week
         binding.tvLesson.text = item.name
-        binding.tvTime.text = item.time.toString()
+        binding.tvTime.text = item.time
+
+        timeFormat.parse(item.time)
+
 
         itemView.setOnClickListener {
             click(item)
@@ -58,6 +64,6 @@ class ScheduleViewHolder(
     }
 
     companion object {
-
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
     }
 }

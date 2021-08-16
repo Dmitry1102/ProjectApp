@@ -1,4 +1,4 @@
-package com.tms.projectapp
+package com.tms.projectapp.fragments
 
 import android.content.Intent
 import android.net.Uri
@@ -10,9 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.navigation.ActivityNavigator
 import androidx.navigation.findNavController
-import com.tms.projectapp.databinding.FragmentScheduleBinding
 import com.tms.projectapp.databinding.MainFragmentBinding
 import java.lang.Exception
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/shedule_widget"
+    android:minHeight="100dp"
+    android:minWidth="200dp"
+    android:minResizeHeight="100dp"
+    android:minResizeWidth="100dp"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen">
+
+</appwidget-provider>

@@ -7,6 +7,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.text.format.Time
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.JobIntentService
 import com.tms.projectapp.MainActivity
@@ -69,15 +70,11 @@ class ScheduleWidget: AppWidgetProvider() {
     }
 
     private fun handleSyncResult(remoteViews: RemoteViews, intent: Intent?) {
-        remoteViews.setTextViewText(R.id.tv_title, intent?.getStringExtra(KEY_SCHEDULE_NAME))
-        val time: Long? = intent?.getLongExtra(KEY_SCHEDULE_TIME,0L)
-        if (time!! > 0L  ) {
-            remoteViews.setTextViewText(R.id.tv_date, time.toString())
-        } else {
-            remoteViews.setTextViewText(R.id.tv_date, "")
-        }
-        remoteViews.setTextViewText(R.id.tv_day, intent.getStringExtra(KEY_SCHEDULE_DAY))
-        remoteViews.setTextViewText(R.id.tv_week, intent.getStringExtra(KEY_SCHEDULE_WEEK))
+        remoteViews.setTextViewText(R.id.tv_title, intent?.getStringExtra(FOR_SCHEDULE))
+        remoteViews.setTextViewText(R.id.tv_date, intent?.getStringExtra(FOR_SCHEDULE_TIME))
+        remoteViews.setTextViewText(R.id.tv_day, intent?.getStringExtra(FOR_SCHEDULE_WEEK))
+        remoteViews.setTextViewText(R.id.tv_week, intent?.getStringExtra(FOR_SCHEDULE_DAY))
+
 
     }
 
@@ -109,10 +106,10 @@ class ScheduleWidget: AppWidgetProvider() {
         const val APP_WIDGET_SYNC_RESULT = "PLANNER_APP_WIDGET_SYNC_RESULT"
         const val JOB_ID = 56555
 
-        const val KEY_SCHEDULE_NAME = "APP_SCHEDULE_TEXT"
-        const val KEY_SCHEDULE_TIME = "KEY_SCHEDULE_TIME"
-        const val KEY_SCHEDULE_WEEK = "KEY_SCHEDULE_WEEK"
-        const val KEY_SCHEDULE_DAY = "KEY_SCHEDULE_DAY"
+        const val FOR_SCHEDULE = "FOR_SCHEDULE"
+        const val FOR_SCHEDULE_TIME = "FOR_SCHEDULE_TIME"
+        const val FOR_SCHEDULE_WEEK = "FOR_SCHEDULE_WEEK"
+        const val FOR_SCHEDULE_DAY = "FOR_SCHEDULE_DAY"
     }
 
 }

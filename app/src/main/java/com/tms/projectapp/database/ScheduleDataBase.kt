@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [DataEntity::class], version = 1)
+@Database(entities = [DataEntity::class], version = 2)
 abstract class ScheduleDataBase: RoomDatabase()  {
 
 
@@ -19,5 +19,5 @@ object DatabaseConstructor {
             context,
             ScheduleDataBase::class.java,
             "lesson_schedule"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 }
