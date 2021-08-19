@@ -9,8 +9,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.databinding.FragmentScheduleBinding
-import com.tms.projectapp.schedule.ScheduleAdapter
-import com.tms.projectapp.schedule.ScheduleViewModel
+import com.tms.projectapp.viewModel.ScheduleAdapter
+import com.tms.projectapp.viewModel.ScheduleViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ScheduleFragment: Fragment(){
@@ -48,9 +48,6 @@ class ScheduleFragment: Fragment(){
         viewModel.liveData.observe(this.viewLifecycleOwner){
             scheduleAdapter.submitList(it)
         }
-
-
-
 
 
         binding?.btnBack?.setOnClickListener {

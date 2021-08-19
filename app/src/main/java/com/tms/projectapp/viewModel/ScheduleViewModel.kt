@@ -1,4 +1,4 @@
-package com.tms.projectapp.schedule
+package com.tms.projectapp.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -6,6 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.database.DataEntity
+import com.tms.projectapp.repositories.ScheduleRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent

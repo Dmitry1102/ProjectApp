@@ -71,9 +71,10 @@ class ScheduleWidget: AppWidgetProvider() {
 
     private fun handleSyncResult(remoteViews: RemoteViews, intent: Intent?) {
         remoteViews.setTextViewText(R.id.tv_title, intent?.getStringExtra(FOR_SCHEDULE))
-        remoteViews.setTextViewText(R.id.tv_date, intent?.getStringExtra(FOR_SCHEDULE_TIME))
-        remoteViews.setTextViewText(R.id.tv_day, intent?.getStringExtra(FOR_SCHEDULE_WEEK))
-        remoteViews.setTextViewText(R.id.tv_week, intent?.getStringExtra(FOR_SCHEDULE_DAY))
+        remoteViews.setTextViewText(R.id.tv_date, intent?.getStringExtra(FOR_SCHEDULE_DAY))
+        remoteViews.setTextViewText(R.id.tv_time, intent?.getStringExtra(FOR_SCHEDULE_TIME))
+        remoteViews.setTextViewText(R.id.tv_week, intent?.getStringExtra(FOR_SCHEDULE_WEEK))
+
 
 
     }

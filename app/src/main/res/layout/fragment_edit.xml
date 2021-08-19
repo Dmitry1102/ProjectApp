@@ -72,9 +72,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:inputType="time"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_day" />
+        app:layout_constraintTop_toBottomOf="@+id/spin_day"
+        />
+
+
 
     <TextView
         android:id="@+id/tv_fourth"
@@ -101,6 +105,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_time"
         app:layout_constraintVertical_bias="0.089" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add"

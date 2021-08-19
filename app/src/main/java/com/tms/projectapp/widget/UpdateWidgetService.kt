@@ -15,7 +15,6 @@ class UpdateWidgetService: JobIntentService(), KoinComponent {
 
     override fun onHandleWork(intent: Intent) {
         val name = intent.getStringExtra(NAME_LESSON)
-        Log.e("AAA", "${intent.getStringExtra(NAME_LESSON)}")
         val day  = intent.getStringExtra(DAY_LESSON)
         val time = intent.getStringExtra(TIME_LESSON)
         val week = intent.getStringExtra(WEEK_LESSON)
@@ -28,9 +27,8 @@ class UpdateWidgetService: JobIntentService(), KoinComponent {
         intent.action = ScheduleWidget.APP_WIDGET_SYNC_RESULT
 
         intent.putExtra(ScheduleWidget.FOR_SCHEDULE, name)
-        Log.e("KEK","${intent.putExtra(ScheduleWidget.FOR_SCHEDULE, name)}")
-        intent.putExtra(ScheduleWidget.FOR_SCHEDULE_TIME, time)
         intent.putExtra(ScheduleWidget.FOR_SCHEDULE_DAY,day)
+        intent.putExtra(ScheduleWidget.FOR_SCHEDULE_TIME, time)
         intent.putExtra(ScheduleWidget.FOR_SCHEDULE_WEEK,week)
 
 
@@ -47,6 +45,7 @@ class UpdateWidgetService: JobIntentService(), KoinComponent {
     }
 
     companion object{
+        const val UPDATE_ID = 123
         const val DATA_SYNC = "DATA_SYNC"
 
         const val NAME_LESSON = "NAME_LESSON"

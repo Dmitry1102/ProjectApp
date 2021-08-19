@@ -1,12 +1,12 @@
-package com.tms.projectapp.schedule
+package com.tms.projectapp.repositories
 
-import com.tms.projectapp.MainActivity
 import com.tms.projectapp.database.Data
 import com.tms.projectapp.database.DataDao
 import com.tms.projectapp.database.DataEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
 class ScheduleRepository(
     private val dataDao: DataDao
@@ -19,11 +19,16 @@ class ScheduleRepository(
     }
 
     suspend fun insertData(data: DataEntity){
-        dataDao.insertData(data)
+       withContext(Dispatchers.IO){
+           dataDao.insertData(data)
+       }
     }
 
     suspend fun deleteData(data: Data){
-        dataDao.deleteData(data.entity())
+        withContext(Dispatchers.IO){
+            dataDao.deleteData(data.entity())
+        }
+
     }
 
     private fun Data.entity() = DataEntity(this.id, this.name,this.day,this.week,this.time)

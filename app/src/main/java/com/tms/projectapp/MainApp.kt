@@ -3,8 +3,8 @@ package com.tms.projectapp
 import android.app.Application
 import com.tms.projectapp.database.DatabaseConstructor
 import com.tms.projectapp.database.ScheduleDataBase
-import com.tms.projectapp.schedule.ScheduleRepository
-import com.tms.projectapp.schedule.ScheduleViewModel
+import com.tms.projectapp.repositories.ScheduleRepository
+import com.tms.projectapp.viewModel.ScheduleViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.component.KoinComponent
