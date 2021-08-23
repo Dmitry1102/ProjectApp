@@ -131,14 +131,14 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         mMap = googleMap
         mMap.uiSettings.isZoomControlsEnabled = true
 
-        val markerFkip = MarkerOptions()
+        val markerStart = MarkerOptions()
             .position(start)
-        val markerMonas = MarkerOptions()
+        val markerEnd = MarkerOptions()
             .position(end)
 
 
-        mMap.addMarker(markerFkip)
-        mMap.addMarker(markerMonas)
+        mMap.addMarker(markerStart)
+        mMap.addMarker(markerEnd)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(end, 11.6f))
 
         val from = start.latitude.toString() + "," + start.longitude.toString()
