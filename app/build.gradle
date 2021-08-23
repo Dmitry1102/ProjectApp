@@ -20,6 +20,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,6 +49,15 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.google.code.gson:gson:2.8.7"
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    ext.geolib_version = "2.5.6"
+
+    //библиотека для карты
+    implementation "io.github.utsmannn:geolib-location:$geolib_version"
+    implementation "io.github.utsmannn:geolib-routes:$geolib_version"
+    implementation "io.github.utsmannn:geolib-polyline:$geolib_version"
+    implementation "io.github.utsmannn:geolib-marker:$geolib_version"
+
 
 
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
@@ -83,6 +93,9 @@ dependencies {
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    implementation 'com.google.maps.android:maps-ktx:2.1.1'
 
 
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
